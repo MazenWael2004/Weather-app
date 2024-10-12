@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazen's Weather app</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <div class="outer-container">
+  
+    
+<div class="container">
+   <%   if(!locals.Data){ %>
+     <form action="/current" method="post">
+        <input type="text" name="location-entered" placeholder="Enter Your Location">
+        <button class="search-buttton"><img src="/images/search.png" class="search-icon" alt=""></button>
+    </form>
+
+    <% }else { %>
+
+        <form action="/current" method="post">
+            <input type="text" name="location-entered" placeholder="Enter Your Location">
+            <button class="search-buttton"><img src="/images/search.png" class="search-icon" alt=""></button>
+        </form>
+
+    <div class="weather-condition-container">
+        <% if(isDay){ %>
+        <img src="/images/<%= weathercondition %>1.png" class="weather-condition-image" alt="Weather condition">
+     <% } else { %>
+        <img src="/images/<%= weathercondition %>0.png" class="weather-condition-image" alt="Weather condition">
+        <% } %>
+
+    <div class="deg-and-loc">
+        <h1><%= DegreeCelsius %>°C</h1>
+        <h2><%= City %></h2>
+    </div>
+
+    <div class="humidity-and-wind-speed-container">
+        <div class="condition">
+            <div class="percentage">
+                <%= humidity %>%
+            </div>
+            <div class="title">
+                Humidity    
+            </div>
+        </div>
+
+        <div class="condition">
+            <div class="percentage">
+                <%=windspeed%>km/h
+            </div>
+            <div class="title">
+                Wind Speed  
+            </div>
+        </div>
+    </div>
+   <% } %>
+    </div>
+
+    
+
+
+    
+</div>
+    </div>
+</body>
+</html>
